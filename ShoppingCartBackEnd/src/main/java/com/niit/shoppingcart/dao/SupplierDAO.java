@@ -19,5 +19,9 @@ public boolean save(Supplier supplier);
 	
 	public  List<Supplier> list();
 	
+	public Supplier getByName(String name);
+	
+	
+	
 
 }

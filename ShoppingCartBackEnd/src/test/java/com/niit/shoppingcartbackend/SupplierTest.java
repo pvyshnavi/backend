@@ -21,9 +21,9 @@ public static void main(String[] args) {
 		        
 		        SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
 		        Supplier supplier = (Supplier) context.getBean("supplier");
-		        supplier.setId("S002");
-		        supplier.setName("SG002");
-		        supplier.setAddress("delhi");
+		        supplier.setId("S004");
+		        supplier.setName("SG004");
+		        supplier.setAddress("kolkata");
 		        
 		       if(supplierDAO.save(supplier) == true)
 		       {

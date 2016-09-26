@@ -18,9 +18,9 @@ public static void main(String[] args) {
 		         
 		        ProductDAO productDAO = (ProductDAO) context.getBean("productDAO");
 		        Product product = (Product) context.getBean("product");
-		        product.setId("MOB_003");
-		        product.setName("iphone3");
-		        product.setPrice(8000);
+		        product.setId("MOB_004");
+		        product.setName("iphone4");
+		        product.setPrice(7000);
 		        product.setDesc("iphone desc");
 		        
 		       if(productDAO.save(product) == true)

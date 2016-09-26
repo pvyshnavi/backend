@@ -18,4 +18,8 @@ public boolean save(UserDetails userDetails);
 	public  UserDetails get(String id);
 	
 	public  List<UserDetails> list();
+	public boolean isValidUser(String id, String password);
+
+	
+	
 }

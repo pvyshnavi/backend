@@ -16,12 +16,13 @@ public static void main(String[] args) {
 		         
 		        UserDetailsDAO userDetailsDAO = (UserDetailsDAO) context.getBean("userDetailsDAO");
 		        UserDetails userDetails = (UserDetails) context.getBean("userDetails");
-		        userDetails.setId("P2");
-		        userDetails.setName("ab");
-		        userDetails.setPassword("bc");
-		        userDetails.setMail("ab@gmail.com");
-		        userDetails.setContact("9895276818");
-		        userDetails.setAddress("tcr");
+		        userDetails.setId("P4");
+		        userDetails.setName("bcd");
+		        userDetails.setPassword("ps");
+		        userDetails.setMail("ps@gmail.com");
+		        userDetails.setContact("9895276828");
+		        userDetails.setAddress("kkm");
+		        userDetails.setRole("");
 		   
 		        
 		       if(userDetailsDAO.save(userDetails) == true)

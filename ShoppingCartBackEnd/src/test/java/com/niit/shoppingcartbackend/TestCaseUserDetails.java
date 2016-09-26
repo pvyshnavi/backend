@@ -35,26 +35,27 @@ public class TestCaseUserDetails {
 		
 	}
 	
-	
+	@Test
 	public void deleteUserDetailsTestCase()
 	{
-		userDetails.setId("p1");
+		userDetails.setId("p3");
 		
 		boolean flag = userDetailsDAO.delete(userDetails);
 		
 		assertEquals("deleteUserDetailsTestCase", flag, true);
 	}
 	
-	
+	//@Test
 	public void addProductTestCase()
 	{
 		
-		userDetails.setId("p3");
-		userDetails.setName("abd");
-		userDetails.setPassword("ac");
-        userDetails.setMail("ad@gmail.com");
-        userDetails.setContact("9985276818");
-        userDetails.setAddress("tvm");
+		userDetails.setId("p5");
+		userDetails.setName("pr");
+		userDetails.setPassword("ps2");
+        userDetails.setMail("pr@gmail.com");
+        userDetails.setContact("9985276838");
+        userDetails.setAddress("gvr");
+        userDetails.setRole("");
 		
 		
 		//productDAO.save(product);
@@ -63,13 +64,13 @@ public class TestCaseUserDetails {
 		
 	}
 	
-	
+	//@Test
 	public void listUserDetailsTestCase()
 	{
-		assertEquals("listUserDetailsTestCase", userDetailsDAO.list().size(),3);
+		assertEquals("listUserDetailsTestCase", userDetailsDAO.list().size(),4);
 	}
 	
-	@Test
+	//@Test
 	public void updateUserDetailsTestCase()
 	{
 		
@@ -78,14 +79,15 @@ public class TestCaseUserDetails {
 		userDetails.setPassword("abcd");
 		userDetails.setMail("ad@gmail.com");
         userDetails.setContact("9985276818");
-        userDetails.setAddress("tvm");
+        userDetails.setAddress("gvr");
+        userDetails.setRole("");
 
 		
 		assertEquals("updateUserDetailsTestCase",userDetailsDAO.update(userDetails),true);
 		
 	}
 	
-	
+	//@Test
 	public void getUserDetailsTestCase()
 	{
 		assertEquals("getUserDetailsTestCase",userDetailsDAO.get("p1"),null);

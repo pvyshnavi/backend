@@ -15,5 +15,9 @@ public boolean save(Product product);
 	public  Product get(String id);
 	
 	public  List<Product> list();
+	
+	public Product getByName(String name);
+	
+	
 
 }

@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingcart.model.Product;
 
+
 @Transactional
 @Repository("productDAO")
 public class ProductDAOImpl implements ProductDAO{
@@ -119,6 +120,25 @@ public class ProductDAOImpl implements ProductDAO{
 		
 		
 	}
+	
+	@Transactional
+	public Product getByName(String name) {
+		log.debug("start : calling getByName");
+		String hql = "from Product where name=" + "'"+ name +"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Product> listProduct = (List<Product>) query.list();
+		
+		if (listProduct != null && !listProduct.isEmpty()) {
+			return listProduct.get(0);
+		}
+		log.debug("end : calling getByName");
+		return null;
+	}
+
+	
+	
 
 
 

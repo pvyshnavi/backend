@@ -35,25 +35,25 @@ public class TestCaseCategory {
 		
 		
 	}
-	
+	@Test
 	public void categoryListTestCase()
 	{
 		List<Category> list = categoryDAO.list();
 		int rowCount= list.size();
 		
-		assertEquals("Category List Test Case", rowCount, 6);
+		assertEquals("Category List Test Case", rowCount, 7);
 	}
-	
+	//@Test
 	public void categoryAddTestCase()
 	{
-		category.setId("C005");
-		category.setName("CG005");
-		category.setDescription("CG005");
+		category.setId("C008");
+		category.setName("CG008");
+		category.setDescription("CG008");
 		
 		boolean flag= categoryDAO.save(category);
 		assertEquals(flag, true);
 	}
-    @Test
+    //@Test
 	public void categoryGetTestCase()
 	{
 		category = categoryDAO.get("C002");
