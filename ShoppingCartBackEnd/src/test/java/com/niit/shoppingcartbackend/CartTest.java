@@ -33,7 +33,7 @@ public class CartTest {
 		//Product p = (Product) context.getBean("product");
 		
 		
-		cart.setId(03);
+		cart.setId("0453");
 		cart.setTotal(9050);
 		cart.setProductName("mob3");
 		cart.setPrice(9050);

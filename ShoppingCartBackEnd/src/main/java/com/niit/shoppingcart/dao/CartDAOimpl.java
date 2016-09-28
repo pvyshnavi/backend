@@ -4,6 +4,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,11 +34,8 @@ public class CartDAOimpl implements CartDAO {
 		
 		return list;
 	}
-
-
 	
-	
-	public Cart get(int id) {
+	public Cart get(String id) {
 		String hql = "from Cart where id = '" + id + "' and status = 'N'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
@@ -51,16 +49,19 @@ public class CartDAOimpl implements CartDAO {
 		}
 		return null;
 	}
-
 	
 	public void saveOrUpdate(Cart cart) {
-		sessionFactory.getCurrentSession().saveOrUpdate(cart);
+		Session sd=sessionFactory.openSession();
+		
+		sd.saveOrUpdate(cart);
+		sd.flush();
+		//sessionFactory.getCurrentSession().saveOrUpdate(cart);
 		
 	}
 	
 	public String delete(int id) {
 		Cart cartToDelete = new Cart();
-		cartToDelete.setId(id);
+		//cartToDelete.setId(id);
 		
 		
 			try {
@@ -86,6 +87,33 @@ String hql = "select sum(price) from Cart where user_ID = '" + id + "' and statu
 		return total;
           }
           return 0;
+	}
+	
+	public Cart getByUserId(String user_id) {
+		String hql = "from Cart where user_id = '" + user_id + "' and status = 'N'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		
+		@SuppressWarnings("unchecked")
+		List<Cart> list = query.list();
+		
+		if(list!=null && !list.isEmpty()) {
+			
+			return list.get(0);
+		}
+		return null;
+	}
+
+	public List<Cart> userCartList(String user_id) {
+		String hql = "from Cart where user_id = '" + user_id + "' and status = 'N'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Cart> list = query.list();
+		
+		return list;
+		
+      
 	}
 	
 }

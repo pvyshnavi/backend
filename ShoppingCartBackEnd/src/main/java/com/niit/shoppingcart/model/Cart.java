@@ -1,5 +1,7 @@
 package com.niit.shoppingcart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table
 @Component
-public class Cart {
+public class Cart implements Serializable {
 	
 	@Transient
 	private int total;
@@ -54,15 +56,15 @@ public class Cart {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY) 
-	private int id;
+	@Id 
+	private String id;
 	
 	
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public int getTotal() {
