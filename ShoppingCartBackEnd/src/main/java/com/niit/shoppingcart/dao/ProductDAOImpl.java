@@ -31,19 +31,25 @@ public class ProductDAOImpl implements ProductDAO{
 		this.sessionFactory = sessionFactory;
 	}
     
-	public boolean save(Product product) {
-		try {
-			log.debug("starting of the method save");
-			sessionFactory.getCurrentSession().save(product);
-			log.debug("ending of the method save");
-			return true;
-		} catch (Exception e) {
-			log.error("exception occurred in save method" + e.getMessage());
+	//public boolean save(Product product) {
+		//try {
+		//	log.debug("starting of the method save");
+			//sessionFactory.getCurrentSession().save(product);
+		//	log.debug("ending of the method save");
+		//	return true;
+	//	} catch (Exception e) {
+		//	log.error("exception occurred in save method" + e.getMessage());
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
+		//	e.printStackTrace();
+		//	return false;
+	//	}
         
+	//}
+	
+	@Transactional
+	public void saveOrUpdate(Product product) {
+		sessionFactory.getCurrentSession().saveOrUpdate(product);
+
 	}
     
 	public boolean update(Product product){
