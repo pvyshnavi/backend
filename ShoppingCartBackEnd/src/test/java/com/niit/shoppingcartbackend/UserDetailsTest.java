@@ -22,10 +22,10 @@ public static void main(String[] args) {
 		        userDetails.setMail("ps@gmail.com");
 		        userDetails.setContact("9895276828");
 		        userDetails.setAddress("kkm");
-		        userDetails.setRole("");
+		        userDetails.setRole("USER_ADMIN");
 		   
 		        
-		       if(userDetailsDAO.save(userDetails) == true)
+		       if(userDetailsDAO.saveOrUpdate(userDetails) == true)
 		       {
 		    	   System.out.println("UserDetails created successfully");
 		       }

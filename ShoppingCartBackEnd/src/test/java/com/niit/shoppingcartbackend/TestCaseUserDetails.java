@@ -49,7 +49,7 @@ public class TestCaseUserDetails {
 	public void addProductTestCase()
 	{
 		
-		userDetails.setId("p5");
+		userDetails.setId("p6");
 		userDetails.setName("pr");
 		userDetails.setPassword("ps2");
         userDetails.setMail("pr@gmail.com");
@@ -59,7 +59,7 @@ public class TestCaseUserDetails {
 		
 		
 		//productDAO.save(product);
-		assertEquals("addUserDetailsTestCase", userDetailsDAO.save(userDetails), true);
+		assertEquals("addUserDetailsTestCase", userDetailsDAO.saveOrUpdate(userDetails), true);
 		
 		
 	}
@@ -79,11 +79,11 @@ public class TestCaseUserDetails {
 		userDetails.setPassword("abcd");
 		userDetails.setMail("ad@gmail.com");
         userDetails.setContact("9985276818");
-        userDetails.setAddress("gvr");
+        userDetails.setAddress("kkm");
         userDetails.setRole("");
 
 		
-		assertEquals("updateUserDetailsTestCase",userDetailsDAO.update(userDetails),true);
+		assertEquals("updateUserDetailsTestCase",userDetailsDAO.saveOrUpdate(userDetails),true);
 		
 	}
 	

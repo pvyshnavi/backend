@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Entity
 @Table

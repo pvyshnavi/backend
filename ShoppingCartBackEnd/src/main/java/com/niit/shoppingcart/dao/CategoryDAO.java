@@ -10,7 +10,7 @@ import com.niit.shoppingcart.model.Category;
 @Repository
 public interface CategoryDAO {
 	
-	public void saveOrUpdate(Category category);
+	public boolean saveOrUpdate(Category category);
 	
 	//public boolean update(Category category);
 	

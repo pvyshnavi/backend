@@ -1,9 +1,13 @@
 package com.niit.shoppingcart.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -24,8 +28,8 @@ public class Product {
 	@Transient
 	private MultipartFile image;
 	
-	//@OneToMany(mappedBy="product",fetch=FetchType.EAGER)
-	//private Set<Cart> cart;
+	@OneToMany(mappedBy="product",fetch=FetchType.EAGER)
+	private Set<Cart> cart;
 	
 	
 	public MultipartFile getImage() {
@@ -34,12 +38,12 @@ public class Product {
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
-	//public Set<Cart> getCart() {
-		//return cart;
-	//}
-	//public void setCart(Set<Cart> cart) {
-		//this.cart = cart;
-	//}
+	public Set<Cart> getCart() {
+		return cart;
+	}
+public void setCart(Set<Cart> cart) {
+		this.cart = cart;
+	}
 	
 	@ManyToOne
 	@JoinColumn(name="category_id" , nullable = false, updatable = false, insertable = false)

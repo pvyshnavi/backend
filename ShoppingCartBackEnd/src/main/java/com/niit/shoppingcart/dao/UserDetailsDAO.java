@@ -9,9 +9,9 @@ import com.niit.shoppingcart.model.UserDetails;
 @Repository
 public interface UserDetailsDAO {
 
-public boolean save(UserDetails userDetails);
+	public boolean saveOrUpdate(UserDetails userDetails);
 	
-	public boolean update(UserDetails userDetails);
+	//public boolean update(UserDetails userDetails);
 	
 	public boolean delete(UserDetails userDetails);
 	

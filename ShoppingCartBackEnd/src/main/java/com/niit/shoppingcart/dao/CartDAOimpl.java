@@ -36,7 +36,7 @@ public class CartDAOimpl implements CartDAO {
 	}
 	
 	public Cart get(String id) {
-		String hql = "from Cart where id = '" + id + "' and status = 'N'";
+		String hql = "from Cart where id = '" + id + "' and status = 'available'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
 		
@@ -59,30 +59,32 @@ public class CartDAOimpl implements CartDAO {
 		
 	}
 	
-	public String delete(int id) {
-		Cart cartToDelete = new Cart();
-		//cartToDelete.setId(id);
+	public boolean delete(Cart cart) {
 		
+		//cartToDelete.setId(id);
+		System.out.println(cart.getId());
 		
 			try {
-				sessionFactory.getCurrentSession().delete(cartToDelete);
+				sessionFactory.getCurrentSession().delete(cart);
 			} catch (HibernateException e) {
 				
 				e.printStackTrace();
-				return e.getMessage();
+				return true;
 			}
 		
-		return null;
+		return false;
 	}
 
 	public long getTotal(String id) {
-String hql = "select sum(price) from Cart where user_ID = '" + id + "' and status = 'N'";
+		System.out.println("gggggggggggggggg"+id);
+String hql = "select sum(price) from Cart where user_ID = '" + id + "' and status = 'available'";
 		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
          
-          @SuppressWarnings("rawtypes")
-		List list = query.list();
-          long total = (Long) list.get(0);
+          
+		@SuppressWarnings("unchecked")
+		List<Cart> list = query.list();
+          int total =  list.size();
           if(list!=null && !list.isEmpty()) {
 		return total;
           }
@@ -90,7 +92,7 @@ String hql = "select sum(price) from Cart where user_ID = '" + id + "' and statu
 	}
 	
 	public Cart getByUserId(String user_id) {
-		String hql = "from Cart where user_id = '" + user_id + "' and status = 'N'";
+		String hql = "from Cart where user_id = '" + user_id + "' and status = 'available'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
 		
@@ -105,7 +107,7 @@ String hql = "select sum(price) from Cart where user_ID = '" + id + "' and statu
 	}
 
 	public List<Cart> userCartList(String user_id) {
-		String hql = "from Cart where user_id = '" + user_id + "' and status = 'N'";
+		String hql = "from Cart where user_id = '" + user_id + "' and status = 'available'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
 		@SuppressWarnings("unchecked")
@@ -115,5 +117,12 @@ String hql = "select sum(price) from Cart where user_ID = '" + id + "' and statu
 		
       
 	}
+	
+	public void checkOut(String user_id) {
+		String hql = "update Cart set status = 'Y' where user_id ='" + user_id + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.executeUpdate();
+	}
+	
 	
 }

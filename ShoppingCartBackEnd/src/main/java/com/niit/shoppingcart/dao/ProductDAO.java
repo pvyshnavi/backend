@@ -6,7 +6,7 @@ import com.niit.shoppingcart.model.Product;
 
 public interface ProductDAO {
 	
-	public void saveOrUpdate(Product product);
+	public boolean saveOrUpdate(Product product);
 	
 	//public boolean update(Product product);
 	

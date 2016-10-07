@@ -37,7 +37,7 @@ public class TestCaseProduct {
 	@Test
 	public void deleteProductTestCase()
 	{
-		product.setId("MOB_001");
+		product.setId("P001");
 		
 		boolean flag = productDAO.delete(product);
 		
@@ -48,13 +48,13 @@ public class TestCaseProduct {
 	public void addProductTestCase()
 	{
 		
-		product.setId("MOB_004");
-		product.setName("iphone4");
-		product.setDesc("iphone4 desc");
-		product.setPrice(7000);
+		product.setId("P002");
+		product.setName("Gown");
+		product.setDesc("Bridal Gown");
+		product.setPrice(10000);
 		
 		//productDAO.save(product);
-		assertEquals("addProductTestCase", productDAO.save(product), true);
+		assertEquals("addProductTestCase", productDAO.saveOrUpdate(product), true);
 		
 		
 	}
@@ -62,26 +62,26 @@ public class TestCaseProduct {
 	//@Test
 	public void listProductTestCase()
 	{
-		assertEquals("listProductTestCase", productDAO.list().size(),4);
+		assertEquals("listProductTestCase", productDAO.list().size(),10);
 	}
 	
 	//@Test
 	public void updateProductTestCase()
 	{
 		
-		product.setId("MOB_001");
-		product.setName("iphone");
+		product.setId("P001");
+		product.setName("Saree");
 		product.setPrice(6000);
-		product.setDesc("iphone desc");
+		product.setDesc("Cotton Saree");
 		
-		assertEquals("updateProductTestCase",productDAO.update(product),true);
+		assertEquals("updateProductTestCase",productDAO.saveOrUpdate(product),true);
 		
 	}
 	
 	//@Test
 	public void getProductTestCase()
 	{
-		assertEquals("getProductTestCase",productDAO.get("MOB_002"),null);
+		assertEquals("getProductTestCase",productDAO.get("P001"),null);
 		
 	}
 }

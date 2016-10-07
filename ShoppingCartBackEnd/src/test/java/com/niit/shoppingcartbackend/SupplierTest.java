@@ -22,10 +22,10 @@ public static void main(String[] args) {
 		        SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
 		        Supplier supplier = (Supplier) context.getBean("supplier");
 		        supplier.setId("S004");
-		        supplier.setName("SG004");
+		        supplier.setName("kalayani");
 		        supplier.setAddress("kolkata");
 		        
-		       if(supplierDAO.save(supplier) == true)
+		       if(supplierDAO.saveOrUpdate(supplier) == true)
 		       {
 		    	   System.out.println("supplier created successfully");
 		       }

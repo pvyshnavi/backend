@@ -18,12 +18,12 @@ public static void main(String[] args) {
 		         
 		        ProductDAO productDAO = (ProductDAO) context.getBean("productDAO");
 		        Product product = (Product) context.getBean("product");
-		        product.setId("MOB_004");
-		        product.setName("iphone4");
-		        product.setPrice(7000);
-		        product.setDesc("iphone desc");
+		        product.setId("P001");
+		        product.setName("Lehenga");
+		        product.setPrice(8000);
+		        product.setDesc("bridal Lehenga");
 		        
-		       if(productDAO.save(product) == true)
+		       if(productDAO.saveOrUpdate(product) == true)
 		       {
 		    	   System.out.println("product created successfully");
 		       }

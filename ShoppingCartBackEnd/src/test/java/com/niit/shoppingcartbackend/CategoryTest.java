@@ -16,11 +16,12 @@ public class CategoryTest {
 		         
 		        CategoryDAO categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 		        Category category = (Category) context.getBean("category");
-		        category.setId("C007");
-		        category.setName("CG007");
-		        category.setDescription("CG007 Descr");
+		        category.setId("C0001");
+		        category.setName("saree");
+		        category.setDescription("cotton saree");
 		        
-		       if(categoryDAO.save(category) == true)
+		        
+		       if(categoryDAO.saveOrUpdate(category) == true)
 		       {
 		    	   System.out.println("category created successfully");
 		       }

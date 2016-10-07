@@ -9,7 +9,7 @@ import com.niit.shoppingcart.model.Supplier;
 @Repository
 public interface SupplierDAO {
 	
-	public void saveOrUpdate(Supplier supplier);
+	public boolean saveOrUpdate(Supplier supplier);
 	
 	//public boolean update(Supplier supplier);
 	

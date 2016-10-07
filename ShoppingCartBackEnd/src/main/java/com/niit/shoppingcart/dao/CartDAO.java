@@ -16,10 +16,10 @@ public List<Cart> userCartList(String user_id);
 	
 	public void saveOrUpdate(Cart cart);
 	
-	public String delete(int id);
+	public boolean delete(Cart cart);
 	
 	public long getTotal(String id);
 	
-	
+	public void checkOut(String user_id);
 
 }

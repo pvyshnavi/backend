@@ -32,34 +32,42 @@ public class UserDetailsDAOImpl implements UserDetailsDAO{
 		this.sessionFactory = sessionFactory;
 	}
     
-	public boolean save(UserDetails userDetails) {
-		try {
-			log.debug("starting of the method save");
-			sessionFactory.getCurrentSession().save(userDetails);
-			log.debug("ending of the method save");
-			return true;
-		} catch (Exception e) {
-			log.error("exception occurred in save method" + e.getMessage());
+	//public boolean save(UserDetails userDetails) {
+		//try {
+		//	log.debug("starting of the method save");
+		//	sessionFactory.getCurrentSession().save(userDetails);
+		//	log.debug("ending of the method save");
+		//	return true;
+		//} catch (Exception e) {
+			//log.error("exception occurred in save method" + e.getMessage());
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
+			//e.printStackTrace();
+		//	return false;
+		//}
         
+//	}
+	
+	@Transactional
+	public boolean saveOrUpdate(UserDetails userDetails) {
+		sessionFactory.getCurrentSession().saveOrUpdate(userDetails);
+		
+		return true;
+
 	}
     
-	public boolean update(UserDetails userDetails){
-		try {
-			log.debug("starting of the method update");
-			sessionFactory.getCurrentSession().update(userDetails);
-			log.debug("ending of the method update");
-			return true;
-		} catch (Exception e) {
-			log.error("exception occurred in update method" + e.getMessage());
+	//public boolean update(UserDetails userDetails){
+		//try {
+		//	log.debug("starting of the method update");
+		//	sessionFactory.getCurrentSession().update(userDetails);
+		//	log.debug("ending of the method update");
+		//	return true;
+		//} catch (Exception e) {
+		//	log.error("exception occurred in update method" + e.getMessage());
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-	} 
+		//	e.printStackTrace();
+		//}
+		//return false;
+	//} 
     
 	public boolean delete(UserDetails userDetails) {
 		try {

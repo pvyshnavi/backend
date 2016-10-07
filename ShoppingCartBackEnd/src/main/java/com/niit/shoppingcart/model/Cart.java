@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Cart implements Serializable {
 	
-	@Transient
+	
 	private int total;
 	
 	private String productName;
@@ -56,7 +56,7 @@ public class Cart implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	@Id 
+	@Id  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
 	
 	

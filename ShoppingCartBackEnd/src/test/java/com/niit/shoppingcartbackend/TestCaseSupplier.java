@@ -48,39 +48,39 @@ public class TestCaseSupplier {
 		assertEquals("deleteSupplierTestCase", flag, true);
 	}
 	
-	//@Test
+	@Test
 	public void addSupplierTestCase()
 	{
 		
-		supplier.setId("S004");
-		supplier.setName("SG004");
+		supplier.setId("S005");
+		supplier.setName("kalayani");
 		supplier.setAddress("kolkata");
 		
 		//productDAO.save(product);
-		assertEquals("addSupplierTestCase", supplierDAO.save(supplier), true);
+		assertEquals("addSupplierTestCase", supplierDAO.saveOrUpdate(supplier), true);
 		
 		
 	}
 	
-	//@Test
+	@Test
 	public void listSupplierTestCase()
 	{
-		assertEquals("listSupplierTestCase", supplierDAO.list().size(),4);
+		assertEquals("listSupplierTestCase", supplierDAO.list().size(),5);
 	}
 	
-	//@Test
+	@Test
 	public void updateSupplierTestCase()
 	{
 		
-		supplier.setId("S004");
-		supplier.setName("SG004");
+		supplier.setId("S001");
+		supplier.setName("zara");
 		supplier.setAddress("kochi");
 		
-		assertEquals("updateSupplierTestCase",supplierDAO.update(supplier),true);
+		assertEquals("updateSupplierTestCase",supplierDAO.saveOrUpdate(supplier),true);
 		
 	}
 	
-	//@Test
+	@Test
 	public void getSupplierTestCase()
 	{
 		assertEquals("getSupplierTestCase",supplierDAO.get("S001"),null);

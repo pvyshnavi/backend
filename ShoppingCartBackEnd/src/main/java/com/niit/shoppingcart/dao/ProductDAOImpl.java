@@ -47,24 +47,26 @@ public class ProductDAOImpl implements ProductDAO{
 	//}
 	
 	@Transactional
-	public void saveOrUpdate(Product product) {
+	public boolean saveOrUpdate(Product product) {
 		sessionFactory.getCurrentSession().saveOrUpdate(product);
+		
+		return true;
 
 	}
     
-	public boolean update(Product product){
-		try {
-			log.debug("starting of the method update");
-			sessionFactory.getCurrentSession().update(product);
-			log.debug("ending of the method update");
-			return true;
-		} catch (Exception e) {
-			log.error("exception occurred in update method" + e.getMessage());
+	//public boolean update(Product product){
+		//try {
+		//	log.debug("starting of the method update");
+		//	sessionFactory.getCurrentSession().update(product);
+		//	log.debug("ending of the method update");
+		//	return true;
+	//	} catch (Exception e) {
+		//	log.error("exception occurred in update method" + e.getMessage());
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-	} 
+		//	e.printStackTrace();
+		//}
+		//return false;
+//	} 
     
 	public boolean delete(Product product) {
 		try {

@@ -41,7 +41,7 @@ public class TestCaseCategory {
 		List<Category> list = categoryDAO.list();
 		int rowCount= list.size();
 		
-		assertEquals("Category List Test Case", rowCount, 7);
+		assertEquals("Category List Test Case", rowCount, 10);
 	}
 	//@Test
 	public void categoryAddTestCase()
@@ -50,7 +50,7 @@ public class TestCaseCategory {
 		category.setName("CG008");
 		category.setDescription("CG008");
 		
-		boolean flag= categoryDAO.save(category);
+		boolean flag= categoryDAO.saveOrUpdate(category);
 		assertEquals(flag, true);
 	}
     //@Test

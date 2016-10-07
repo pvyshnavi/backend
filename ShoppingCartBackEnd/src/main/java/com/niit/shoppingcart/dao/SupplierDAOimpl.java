@@ -50,8 +50,10 @@ public class SupplierDAOimpl implements SupplierDAO{
 	//}
 	
 	@Transactional
-	public void saveOrUpdate(Supplier supplier) {
+	public boolean saveOrUpdate(Supplier supplier) {
 		sessionFactory.getCurrentSession().saveOrUpdate(supplier);
+		
+		return true;
 
 	}
 

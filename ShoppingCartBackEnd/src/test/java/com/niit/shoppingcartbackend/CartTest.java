@@ -33,14 +33,14 @@ public class CartTest {
 		//Product p = (Product) context.getBean("product");
 		
 		
-		cart.setId("0453");
-		cart.setTotal(9050);
-		cart.setProductName("mob3");
-		cart.setPrice(9050);
+		cart.setId("2");
+		cart.setTotal(500);
+		cart.setProductName("Tops");
+		cart.setPrice(500);
 		cart.setQuantity(1);
 		cart.setStatus("available");
-		cart.setUserDetails(userDetailsDAO.get("p5"));
-		cart.setProduct(productDAO.get("MOB_004"));
+		cart.setUserDetails(userDetailsDAO.get("P1"));
+		cart.setProduct(productDAO.get("P003"));
 		
 		
 		cartDAO.saveOrUpdate(cart);
